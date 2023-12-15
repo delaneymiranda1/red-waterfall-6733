@@ -1,0 +1,17 @@
+<h1>Total Members in <%= @nation %> Nation: <%= @total_members %></h1>
+
+<% @members.each do |member| %>
+  <div class="member">
+    <h2><%= member['name'] %></h2>
+    <%= image_tag(member['photoUrl']) if member['photoUrl'].present? %>
+
+    <h3>Allies:</h3>
+    <p><%= member['allies'].present? ? member['allies'].join(', ') : 'None' %></p>
+
+    <h3>Enemies:</h3>
+    <p><%= member['enemies'].present? ? member['enemies'].join(', ') : 'None' %></p>
+
+    <h3>Affiliations:</h3>
+    <p><%= member['affiliation'].present? ? member['affiliation'].join(', ') : 'None' %></p>
+  </div>
+<% end %>
